@@ -1,5 +1,10 @@
 define([], function(){
   var TicTacToe = function() {
+    this.score = {
+      wins:  0,
+      draws: 0,
+      loses: 0
+    }
     // Data structure for a grid position
     var Pos = function(x,y){
       return {
@@ -261,6 +266,17 @@ define([], function(){
     };
 
     this.tryAgain = function () {
+      if(this.testEndGameConditions()){
+        if(this.testGameSomeoneWon()){
+          if(this.testGameSomeoneWon() === this.sign.X){
+            this.score.wins++;
+          } else {
+            this.score.loses++;
+          }
+        } else {
+          this.score.draws++;
+        }
+      }
       this.startTicTacToe();
     };
 

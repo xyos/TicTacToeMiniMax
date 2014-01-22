@@ -34,10 +34,7 @@ define([
                 console.log('end');
               }
             });
-          } else {
-              console.log(game.testGameSomeoneWon());
-          }
-
+          } 
         } else if (player === game.sign.X){
           this.color("green");
         } else if (player === game.sign.O){
@@ -56,6 +53,8 @@ define([
       return this.grid.height * this.h + this.grid.border;
     };
     this.draw = function(){
+      var scoreBoard = document.querySelector("#score");
+      scoreBoard.textContent = "victorias : " + that.game.score.wins + " empates : " + that.game.score.draws + " derrotas : " + that.game.score.loses;
       for (var x = 0; x < that.game.ticTacToeBoard.length; x++) {
         for (var y = 0; y < that.game.ticTacToeBoard[x].length; y++) {
           var pos = {x: x, y :y};
