@@ -8,8 +8,8 @@ define([
     this.h = 3;
     this.w = 3;
     this.grid = {
-      width:  128,
-      height: 128,
+      width:  64,
+      height: 64,
       border: 10
     };
     this.square = Crafty.c('Square', {
